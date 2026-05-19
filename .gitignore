@@ -1,0 +1,10 @@
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
+*.iobj
+*.ipdb
+*.zip
+*.rar
+spakowane/
