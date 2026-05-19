@@ -1,0 +1,14 @@
+Module
+  name: food_eater
+  description: Food Eater
+  author: Otland for the Win
+  website: -
+  version: 1
+
+  autoload: true
+  autoload-priority: 1000
+  sandboxed: true
+  dependencies: [ client_topmenu ]
+  scripts: [ dungeon ]
+  @onLoad: init()
+  @onUnload: terminate()

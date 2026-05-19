@@ -1,0 +1,294 @@
+ShopCategory < Panel
+  height: 72
+  focusable: true
+  background: alpha
+  image-source: category_back
+
+  $focus:
+    image-source: category_backh
+  
+  Label
+    id: name
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    margin-left: 40
+    text-align: center
+    color: white
+    font: lucida-11px-rounded
+    
+ShopCategoryItem < ShopCategory
+  UIItem
+    id: item
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    margin-top: 2
+    margin-bottom: 2
+    margin-left: 2
+    virtual: true
+    size: 80 80
+    
+ShopCategoryCreature < ShopCategory
+  UICreature
+    id: creature
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    margin-top: 2
+    margin-bottom: 2
+    margin-left: 2
+    size: 80 80
+    
+ShopCategoryImage < ShopCategory
+  Label
+    id: image
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    margin-top: 2
+    margin-bottom: 2
+    margin-left: 2
+    size: 80 80
+    
+    
+    
+ShopOffer < Panel
+  height: 56
+  background: alpha
+  image-source: offer_back    
+  
+  $focus:
+    image-source: offer_backh
+
+  Label
+    id: title
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: parent.top
+    margin-top: 10
+    margin-left: 60
+    text-align: topleft
+    color: white
+    height: 28
+    font: sans-bold-16px
+
+  Label
+    id: description
+    anchors.top: prev.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    margin-left: 60
+    margin-right: 55
+    text-align: topleft
+    text-auto-resize: true
+    text-wrap: true
+    color: #BCBCBC
+    font: small-9px
+
+  Label
+    id: cost
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.bottom: parent.bottom
+    margin-bottom: 17
+    margin-right: -90
+    text-align: topleft
+    text-auto-resize: true
+    text-wrap: true
+    color: white
+    font: sans-bold-16px
+
+  Label
+    id: cost2
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.bottom: parent.bottom
+    margin-bottom: 20
+    margin-right: -55
+    text-align: topleft
+    text-auto-resize: true
+    text-wrap: true
+    color: #6F052E
+    visible: false
+    font: terminus-10px
+
+  Label
+    id: cost3
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.bottom: parent.bottom
+    margin-bottom: 20
+    margin-right: -130
+    text-align: topleft
+    text-auto-resize: true
+    text-wrap: true
+    visible: false
+    color: #9E4E0C
+    font: terminus-10px
+    
+  UIButton
+    id: buyButton
+    text: BUY
+    image-source: buyButton
+    height: 25
+    anchors.verticalCenter: parent.verticalCenter
+    anchors.left: description.right
+    anchors.right: parent.right    
+    margin-right: 15
+    text-align: center
+    
+ShopOfferItem < ShopOffer
+  UIItem
+    id: item
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    margin-top: 4
+    margin-bottom: 4
+    margin-left: 2
+    virtual: true
+    size: 48 48
+    
+ShopOfferCreature < ShopOffer
+  UICreature
+    id: creature
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    margin-top: 4
+    margin-bottom: 4
+    margin-left: 2
+    size: 48 48
+    
+ShopOfferImage < ShopOffer
+  Label
+    id: image
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    margin-top: 4
+    margin-bottom: 4
+    margin-left: 2
+    size: 48 48    
+  
+MainWindow
+  id: shopWindow
+  size: 850 650
+  image-source: window
+  @onEscape: modules.game_shop.hide()
+  $mobile:
+    size: 850 650
+
+  Panel
+    id: adPanel
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-right: 5
+    margin-left: 5
+    auto-resize: true
+    size: 850 250
+    
+    Label
+      id: ad
+      anchors.horizontalCenter: parent.horizontalCenter
+      anchors.top: parent.top
+      anchors.bottom: parent.bottom
+      text-auto-resize: true
+      text-wrap: true
+      text-align: center
+      font: sans-bold-16px
+  
+  TextList    
+    id: categories
+    vertical-scrollbar: categoriesScrollBar
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    margin-right: 540
+    margin-top: 260
+    size: 220 290
+    margin-bottom: 10
+    padding: 1
+    focusable: false
+    image-source: category_panel
+
+  VerticalScrollBar
+    id: categoriesScrollBar
+    anchors.top: categories.top
+    anchors.bottom: categories.bottom
+    anchors.right: categories.right
+    step: 50
+    pixels-scroll: true
+    visible: false
+
+  TextList
+    id: offers
+    size: 530 300
+    vertical-scrollbar: offersScrollBar
+    anchors.right: parent.right
+    anchors.top: parent.top
+    border: 2 #000000
+    margin-top: 260
+    padding: 1
+    focusable: false
+    image-source: offer_panel
+
+  VerticalScrollBar
+    id: offersScrollBar
+    anchors.top: offers.top
+    anchors.bottom: offers.bottom
+    anchors.right: offers.right
+    step: 50
+    pixels-scroll: true
+    visible: false
+
+  UIButton
+    id: transactionHistory
+    size: 60 34
+    anchors.left: parent.left
+    margin-left: 290
+    anchors.bottom: parent.bottom
+    @onClick: modules.game_shop.showHistory()
+    image-source: trans
+
+  UILabel
+    id: balance
+    image-source: balance
+    size: 194 47
+    anchors.right: infoPanel.right
+    anchors.verticalCenter: prev.verticalCenter
+    margin-right: 10
+    @onClick: modules.game_shop.hide()
+
+  UIButton
+    id: buttonCancel
+    tooltip: Fechar Shop!
+    image-source: close
+    size: 60 34
+    anchors.right: parent.right
+    anchors.verticalCenter: balance.verticalCenter
+    margin-right: 10
+    @onClick: modules.game_shop.hide()
+
+  Panel
+    id: infoPanel
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    margin-right: 60
+    margin-bottom: 5
+    tooltip: Diamond balance!
+    width: 230
+    height: 60
+
+    Label
+      id: points
+      tooltip: Diamond balance!
+      size: 194 47
+      anchors.right: parent.right
+      anchors.bottom: parent.bottom
+      margin-right: 50
+      font: sans-bold-16px
+      text: -
+      text-auto-resize: true

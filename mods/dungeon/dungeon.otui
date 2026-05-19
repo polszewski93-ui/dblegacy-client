@@ -1,0 +1,355 @@
+MainWindow
+  id: foodeaterMain
+  !text: tr('Dungeon')
+  size: 900 500
+  @onEscape: modules.food_eater.closing()
+
+  TabBar
+    id: allTabs
+    anchors.top: parent.top
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+
+  Panel
+    id: optionsTabContent
+    anchors.top: allTabs.top
+    anchors.left: allTabs.left
+    anchors.right: allTabs.right
+    anchors.bottom: allTabs.bottom
+    margin-top: 20
+    margin-bottom: 20
+
+  Button
+    id: showListButton1
+    !text: tr('')
+    !icon: 'images/list/lvl50a100.png'
+    width: 250
+    height: 75
+    anchors.left: parent.left
+    anchors.top: parent.top
+    margin-top: 30
+    margin-left: 10
+    borderWidth: 3
+    @onClick: modules.food_eater.showListButton1Clicked(1)
+
+  UIScrollArea
+    id: listFrame1
+    anchors.left: showListButton1.right
+    anchors.top: parent.top
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    background-color: #414141
+    margin-top: 10
+    margin-left: 40
+    margin-right: 10
+    margin-bottom: 30
+    vertical-scrollbar: ScrollBar1
+    visible: false
+    padding-top: 6
+    padding-bottom: 6
+    border-width: 2
+    border-color: #ffffff
+    layout:
+    type: grid
+    cell-size: 99 116
+    cell-spacing: 100
+
+    Label
+      id: lvl50_img
+      !text: tr('')
+      !icon: 'images/lvl50.png'
+      width: 450
+      height: 130
+      anchors.left: parent.left
+      anchors.top: parent.top
+      margin-top: 15
+      margin-left: 57
+      margin-right: 30
+
+    Button
+      id: lvl50_button
+      !text: tr('')
+      !icon: 'images/enter.png'
+      width: 80
+      height: 35
+      anchors.right: lvl50_img.right
+      anchors.top: parent.top
+      margin-top: 90
+      margin-right: 15
+      @onClick: modules.food_eater.lvl50(1, 1)
+
+    Label
+      id: lvl60_img
+      !text: tr('')
+      !icon: 'images/nada.png'
+      width: 450
+      height: 130
+      anchors.left: parent.left
+      anchors.top: lvl50_img.bottom
+      margin-top: 15
+      margin-left: 57
+      margin-right: 30
+
+    Label
+      id: lvl70_img
+      !text: tr('')
+      !icon: 'images/nada.png'
+      width: 450
+      height: 130
+      anchors.left: parent.left
+      anchors.top: lvl60_img.bottom
+      margin-top: 15
+      margin-left: 57
+      margin-right: 30
+
+    Label
+      id: lvl80_img
+      !text: tr('')
+      !icon: 'images/nada.png'
+      width: 450
+      height: 130
+      anchors.left: parent.left
+      anchors.top: lvl70_img.bottom
+      margin-top: 15
+      margin-left: 57
+      margin-right: 30
+
+  VerticalScrollBar
+    id: ScrollBar1
+    anchors.top: listFrame1.top
+    anchors.bottom: listFrame1.bottom
+    anchors.left: listFrame1.right
+    margin-left: 2
+    step: 14
+    visible: false
+    pixels-scroll: true
+
+  Button
+    id: showListButton2
+    !text: tr('')
+    !icon: 'images/list/nada.png'
+    width: 250
+    height: 75
+    anchors.left: parent.left
+    anchors.top: showListButton1.bottom
+    margin-top: 30
+    margin-left: 10
+    borderWidth: 3
+    @onClick: modules.food_eater.showListButton2Clicked(2)
+
+  UIScrollArea
+    id: listFrame2
+    anchors.left: showListButton1.right
+    anchors.top: parent.top
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    background-color: #414141
+    margin-top: 10
+    margin-left: 40
+    margin-right: 10
+    margin-bottom: 30
+    vertical-scrollbar: ScrollBar2
+    visible: false
+    padding-top: 6
+    padding-bottom: 6
+    border-width: 2
+    border-color: #ffffff
+    layout:
+    type: grid
+    cell-size: 99 116
+    cell-spacing: 100
+
+    Button
+      id: tenshinhan
+      !text: tr('')
+      !icon: 'images/nada.png'
+      width: 450
+      height: 130
+      anchors.left: parent.left
+      anchors.top: parent.top
+      margin-top: 15
+      margin-left: 57
+      margin-right: 30
+
+    Button
+      id: gotenks
+      !text: tr('')
+      !icon: 'images/nada.png'
+      width: 450
+      height: 130
+      anchors.left: parent.left
+      anchors.top: parent.top
+      margin-top: 15
+      margin-left: 57
+      margin-right: 30
+
+  VerticalScrollBar
+    id: ScrollBar2
+    anchors.top: listFrame1.top
+    anchors.bottom: listFrame1.bottom
+    anchors.left: listFrame1.right
+    margin-left: 2
+    step: 14
+    visible: false
+    pixels-scroll: true
+
+  Button
+    id: showListButton3
+    !text: tr('')
+    !icon: 'images/list/nada.png'
+    width: 250
+    height: 75
+    anchors.left: parent.left
+    anchors.top: showListButton2.bottom
+    margin-top: 30
+    margin-left: 10
+    borderWidth: 3
+    @onClick: modules.food_eater.showListButton3Clicked(3)
+
+  UIScrollArea
+    id: listFrame3
+    anchors.left: showListButton1.right
+    anchors.top: parent.top
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    background-color: #414141
+    margin-top: 10
+    margin-left: 40
+    margin-right: 10
+    margin-bottom: 30
+    vertical-scrollbar: ScrollBar3
+    visible: false
+    padding-top: 6
+    padding-bottom: 6
+    border-width: 2
+    border-color: #ffffff
+    layout:
+    type: grid
+    cell-size: 99 116
+    cell-spacing: 100
+
+    Button
+      id: boo
+      !text: tr('')
+      !icon: 'images/nada.png'
+      width: 450
+      height: 130
+      anchors.left: parent.left
+      anchors.top: parent.top
+      margin-top: 15
+      margin-left: 57
+      margin-right: 30
+
+    Button
+      id: c18
+      !text: tr('')
+      !icon: 'images/nada.png'
+      width: 450
+      height: 130
+      anchors.left: parent.left
+      anchors.top: parent.top
+      margin-top: 15
+      margin-left: 57
+      margin-right: 30
+
+    Button
+      id: cell
+      !text: tr('')
+      !icon: 'images/nada.png'
+      width: 450
+      height: 130
+      anchors.left: parent.left
+      anchors.top: parent.top
+      margin-top: 15
+      margin-left: 57
+      margin-right: 30
+
+  VerticalScrollBar
+    id: ScrollBar3
+    anchors.top: listFrame1.top
+    anchors.bottom: listFrame1.bottom
+    anchors.left: listFrame1.right
+    margin-left: 2
+    step: 14
+    visible: false
+    pixels-scroll: true
+
+  Button
+    id: showListButton4
+    !text: tr('')
+    !icon: 'images/list/nada.png'
+    width: 250
+    height: 75
+    anchors.left: parent.left
+    anchors.top: showListButton3.bottom
+    margin-top: 30
+    margin-left: 10
+    borderWidth: 3
+    @onClick: modules.food_eater.showListButton4Clicked(4)
+
+  UIScrollArea
+    id: listFrame4
+    anchors.left: showListButton1.right
+    anchors.top: parent.top
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    background-color: #414141
+    margin-top: 10
+    margin-left: 40
+    margin-right: 10
+    margin-bottom: 30
+    vertical-scrollbar: ScrollBar4
+    visible: false
+    padding-top: 6
+    padding-bottom: 6
+    border-width: 2
+    border-color: #ffffff
+    layout:
+    type: grid
+    cell-size: 99 116
+    cell-spacing: 100
+
+    Button
+      id: gohan
+      !text: tr('')
+      !icon: 'images/nada.png'
+      width: 450
+      height: 130
+      anchors.left: parent.left
+      anchors.top: parent.top
+      margin-top: 15
+      margin-left: 57
+      margin-right: 30
+
+    Button
+      id: c17
+      !text: tr('')
+      !icon: 'images/nada.png'
+      width: 450
+      height: 130
+      anchors.left: parent.left
+      anchors.top: parent.top
+      margin-top: 15
+      margin-left: 57
+      margin-right: 30
+
+  VerticalScrollBar
+    id: ScrollBar4
+    anchors.top: listFrame1.top
+    anchors.bottom: listFrame1.bottom
+    anchors.left: listFrame1.right
+    margin-left: 2
+    step: 14
+    visible: false
+    pixels-scroll: true
+
+  Button
+    id: closeButton
+    !text: tr('Close')
+    width: 45
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
+    margin-right: 0
+    margin-bottom: 0
+    @onClick: modules.food_eater.closing()
