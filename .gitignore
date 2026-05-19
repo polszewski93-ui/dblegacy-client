@@ -8,3 +8,5 @@
 *.zip
 *.rar
 spakowane/
+vc16/OpenGL/
+vc16/DirectX/
