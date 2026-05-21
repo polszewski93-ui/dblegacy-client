@@ -12,8 +12,9 @@ jobs:
       uses: microsoft/setup-msbuild@v2
     - name: Install vcpkg dependencies
       run: |
-        cd C:\vcpkg
-        .\vcpkg install boost:x86-windows-static openssl:x86-windows-static lua:x86-windows-static physfs:x86-windows-static zlib:x86-windows-static
+        git clone https://github.com/microsoft/vcpkg.git C:\vcpkg
+        C:\vcpkg\bootstrap-vcpkg.bat
+        C:\vcpkg\vcpkg install boost:x86-windows-static openssl:x86-windows-static lua:x86-windows-static physfs:x86-windows-static zlib:x86-windows-static
     - name: Build
       run: |
         cd vc16
@@ -22,4 +23,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: DBLegacy-exe
-        path: otclient_dx.exe
+        path: vc16\otclient\DirectX\otclient_dx.exe
