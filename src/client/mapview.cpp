@@ -275,9 +275,9 @@ void MapView::drawMapForeground(const Rect& rect)
             if (pos.z != cameraPosition.z && staticText->getMessageMode() == Otc::MessageNone)
                 continue;
             if ((staticText->getMessageMode() != Otc::MessageSay && staticText->getMessageMode() != Otc::MessageYell)) {
-                if (i == 0)
+                if (i == 1)
                     continue;
-            } else if (i == 1)
+            } else if (i == 0)
                 continue;
 
             Point p = transformPositionTo2D(pos, cameraPosition) - drawOffset + Point(8, 0) * g_sprites.getOffsetFactor();
