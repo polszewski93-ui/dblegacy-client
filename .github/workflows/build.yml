@@ -8,17 +8,22 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v4
+
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v2
+
     - name: Install vcpkg dependencies
       run: |
         git clone https://github.com/microsoft/vcpkg.git C:\vcpkg
         C:\vcpkg\bootstrap-vcpkg.bat
         C:\vcpkg\vcpkg install boost:x86-windows-static openssl:x86-windows-static lua:x86-windows-static physfs:x86-windows-static zlib:x86-windows-static
+        C:\vcpkg\vcpkg integrate install
+
     - name: Build
       run: |
         cd vc16
-        msbuild otclient.sln /p:Configuration=DirectX /p:Platform=Win32
+        msbuild otclient.sln /p:Configuration=DirectX /p:Platform=Win32 /p:VcpkgEnabled=true /p:VcpkgAdditionalInstallRoot=C:\vcpkg\installed\x86-windows-static
+
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
